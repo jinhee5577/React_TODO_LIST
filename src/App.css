@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Hahmlet:wght@100;300;400&family=Jua&family=Russo+One&family=Sunflower:wght@300&display=swap");
+.App {
+  max-width: 600px;
+  min-height: 100vh;
+  background: #b8d8a2;
+  margin: 0 auto;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.nav-tabs .nav-link {
+  line-height: 37px !important;
+  color: white;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+/* .nav-tabs .ya {
+  color: rgb(184, 233, 184) !important;
+} */
+
+.nav-link.active {
+  color: rgb(135, 185, 135) !important;
+  border-radius: 12px;
+}
+.App #ya_main {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.App #ya_main h4 {
+  line-height: 25px;
+  font-size: 1.7rem;
+  color: white;
+  font-weight: 500;
+  font-style: italic;
+  font-family: "Black Han Sans", sans-serif;
+}
+.App #ya_main #ya_list {
+  width: 100%;
+  margin-top: 25px;
+}
+.App #ya_main #ya_list .empty {
+  width: 100%;
+  line-height: 320px;
+  color: rgba(248, 246, 180, 0.45);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+#ya_main #ya_list .listbox {
+  width: 100%;
+  border-radius: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: left;
+  background: rgb(244, 250, 184);
+  margin-bottom: 15px;
+  border: 1.5px solid rgb(220, 241, 142);
+  box-shadow: 3px 3px 7px rgba(63, 62, 62, 0.4);
+}
+
+#ya_main .todoform {
+  width: 96%;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#ya_main .todoform .mb-3 {
+  width: 100% !important;
+}
+#ya_main .todoform .mb-3 .form-control {
+  width: 100%;
+  line-height: 45px !important;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(63, 62, 62, 0.4);
+}
+.todoform .mb-3 .form-control::placeholder {
+  color: rgba(14, 110, 78, 0.3);
+}
+#ya_main .todoform .btn {
+  width: 100%;
+  height: 47px !important;
+  text-align: center;
+  margin-top: -5px;
+  background: rgb(82, 167, 82);
+  border-radius: 10px;
+  border-color: rgb(114, 207, 134);
+  box-shadow: 2px 3px 6px rgba(63, 62, 62, 0.4);
+}
