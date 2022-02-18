@@ -50,16 +50,49 @@
 }
 #ya_main #ya_list .listbox {
   width: 100%;
+  /* line-height: 65px; */
   border-radius: 20px;
-  padding: 15px;
+  padding: 15px 10px;
   box-sizing: border-box;
   text-align: left;
   background: rgb(244, 250, 184);
   margin-bottom: 15px;
   border: 1.5px solid rgb(220, 241, 142);
   box-shadow: 3px 3px 7px rgba(63, 62, 62, 0.4);
+  display: flex;
+  justify-content: space-between;
+}
+#ya_list .listbox .ck {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  width: 10%;
+  border-radius: 8px !important;
+  margin-top: 4px;
 }
 
+#ya_list .listbox p {
+  width: 83%;
+  color: rgb(78, 78, 77);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-family: "Do Hyeon", sans-serif;
+  margin: 0 !important;
+}
+#ya_list .listbox .on {
+  text-decoration: line-through rgb(236, 141, 141);
+  color: rgba(78, 78, 77, 0.6);
+}
+
+#ya_list .listbox button {
+  width: 30px;
+  height: 30px;
+  border-color: rgb(140, 216, 90);
+
+  background: none;
+  border-radius: 50%;
+  color: rgb(110, 182, 63);
+}
 #ya_main .todoform {
   width: 96%;
   position: absolute;

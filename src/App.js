@@ -4,23 +4,47 @@
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './App.css';
 
-function App() {
+function App() {  
   let storege = localStorage.getItem('list');
-    if( storege === null ){
-        storege = [];
-    } else {
-        storege = JSON.parse(storege);
-    }
+      if( storege === null ){
+          storege = [];
+      } else {
+          storege = JSON.parse(storege);
+      }
   let [ya_list, setya_list] = useState(storege);
   let [list_input, setlist_input] = useState('');
-  let [confirm_list, setconfirm_list] = useState('');
+  let [swich, setswich] = useState(false);
+  let [count, setcount] = useState(1);
+  let [mapIndex, setmapIndex] = useState(0);
 
-  let save = () => {         
-        storege.push(list_input);       
-        localStorage.setItem('list', JSON.stringify(storege)); 
-        setya_list(storege);     
+  let item_obj = {
+               id : count,
+               contant : list_input,
+               isON : false
+           }; 
+ 
+  let save = () => {  
+        let copy = [...ya_list, item_obj];    
+       console.log(copy);     //여기는 추가가 됬는데 ...
+        localStorage.setItem('list', JSON.stringify(copy)); 
+        setya_list(copy);     //왜 stata에 추가가 안되지?....
+        setlist_input('');    
+        // setcount(count + 1);
+       console.log(ya_list);
     }
-     
+
+  let changeON = () => {     
+      let copy = [...ya_list];              
+      copy[mapIndex]['isON'] = !copy[mapIndex]['isON'];
+      console.log(copy);  
+      localStorage.setItem('list', JSON.stringify(copy)); 
+      setya_list(copy);   //여기는 되는데 ....
+      console.log(ya_list);   
+   }  
+
+  // let delete = () => { 
+
+  // }
 
   return (
     <div className="App">
@@ -42,8 +66,10 @@ function App() {
              ya_list.length > 0 
              ? ya_list.map((item, i) => {
                     return (
-                        <div key={i} className={`listbox listbox${item}`}>
-                          {item}
+                        <div key={i} className={`listbox listbox${item.id}`} >
+                          <input type="checkbox" className='ck' onChange={() => { setmapIndex(i); changeON(); }}/>
+                          <p className={item.isON ? 'on' : ''}>{item.contant}</p>
+                          <button >X</button>
                         </div>
                     );
                 })             
@@ -53,7 +79,7 @@ function App() {
         <Form className="todoform">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             {/* <Form.Label>너의 할일</Form.Label> */}
-            <Form.Control onChange={(e) => { setlist_input(e.target.value); }} type="text" placeholder="할일있잖아~ 입력해 주세요." />          
+            <Form.Control onChange={(e) => { setlist_input(e.target.value); }} value={list_input} placeholder="할일있잖아~ 입력해 주세요." />          
           </Form.Group>           
           <Button variant="primary" onClick={save} >
             저장
