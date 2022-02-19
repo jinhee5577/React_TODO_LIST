@@ -30,12 +30,29 @@
 }
 
 .App #ya_main h4 {
+  width: 100%;
   line-height: 25px;
   font-size: 1.7rem;
   color: white;
   font-weight: 500;
   font-style: italic;
   font-family: "Black Han Sans", sans-serif;
+  position: relative;
+}
+#ya_main h4 button {
+  width: 60px;
+  height: 35px;
+  position: absolute;
+  color: white;
+  font-family: "Hahmlet", serif;
+  background: rgb(82, 167, 82);
+  border-color: rgb(114, 207, 134);
+  box-shadow: 2px 3px 6px rgb(63 62 62 / 40%);
+  border-radius: 10px;
+  top: -7px;
+  right: 0;
+  font-size: 0.7rem;
+  font-style: normal;
 }
 .App #ya_main #ya_list {
   width: 100%;
@@ -71,8 +88,13 @@
   margin-top: 4px;
 }
 
-#ya_list .listbox p {
+#ya_list .listbox article {
   width: 83%;
+  margin-left: 5px;
+}
+
+#ya_list .listbox p {
+  width: 100%;
   color: rgb(78, 78, 77);
   font-size: 1.25rem;
   letter-spacing: 1px;
@@ -84,11 +106,20 @@
   color: rgba(78, 78, 77, 0.6);
 }
 
+#ya_list .listbox article h6 {
+  width: 80%;
+  font-size: 0.7rem;
+  color: rgb(139, 139, 138);
+  font-family: "Hahmlet", serif;
+  font-weight: 400 !important;
+  margin: 0;
+  margin-top: 3px;
+}
+
 #ya_list .listbox button {
   width: 30px;
   height: 30px;
   border-color: rgb(140, 216, 90);
-
   background: none;
   border-radius: 50%;
   color: rgb(110, 182, 63);
