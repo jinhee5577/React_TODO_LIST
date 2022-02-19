@@ -13,8 +13,7 @@ function App() {
       }
   let [ya_list, setya_list] = useState(storege);
   let [list_input, setlist_input] = useState('');
-  let [swich, setswich] = useState(false);
-  let [count, setcount] = useState(1);
+  let [count, setcount] = useState(1);           
   let mapIndex = 0;   // useState()로 변경 하면 조금 늦게 처리되어 수정 에러가 난다.
 
   let today = new Date();
@@ -35,14 +34,16 @@ function App() {
         localStorage.setItem('list', JSON.stringify(copy)); 
         setya_list(copy);     
         setlist_input('');    
-        // setcount(count + 1);
+        // setcount(() => {
+        //      if(ya_list.length > 0){ return ya_list[length - 1].id + 1; }
+        //      else { return count + 1; }
+        //  });
     //    console.log(ya_list);
     }
 
   let changeON = () => {     
       let copy = [...ya_list];              
       copy[mapIndex]['isON'] = !copy[mapIndex]['isON'];
-   //   console.log(copy);  
       localStorage.setItem('list', JSON.stringify(copy)); 
       setya_list(copy);   //여기는 되는데 ....
    //   console.log(ya_list);   
@@ -55,6 +56,10 @@ function App() {
       setya_list(copy); 
   }
 
+  // let selecs_Dele = () => {
+
+  // }
+
   return (
     <div className="App">
       <Nav variant="tabs" defaultActiveKey="/home">
@@ -65,7 +70,7 @@ function App() {
           <Nav.Link eventKey="link-1">Todo추가</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Option 3</Nav.Link>
+          <Nav.Link eventKey="link-2">대기</Nav.Link>
         </Nav.Item>        
       </Nav> 
       <div id="ya_main">
@@ -79,7 +84,8 @@ function App() {
              ? ya_list.map((item, i) => {                
                     return (
                         <div key={i} className={`listbox listbox${item.id}`} >
-                          <input type="checkbox" checked={item.isON} className='ck' onChange={() => { mapIndex = i; changeON(); }}/>
+                          <input type="checkbox" name="check" checked={item.isON} className='ck' 
+                           value={i} onChange={() => { mapIndex = i; changeON(); }}  />
                           <article>
                             <p className={item.isON ? 'on' : ''}>{item.contant}</p>
                             <h6>{item.Day[0]}년 {item.Day[1]}월 {item.Day[2]}일</h6>
