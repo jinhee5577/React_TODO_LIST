@@ -29,7 +29,7 @@
   box-sizing: border-box;
   width: 100%;
   margin-top: 14px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .App #ya_main h4 {
@@ -78,7 +78,7 @@
 .App #ya_main #ya_list {
   width: 100%;
   margin-top: 25px;
-  height: 440px;
+  height: 490px;
   overflow-y: scroll;
 }
 .App #ya_main #ya_list .empty {
