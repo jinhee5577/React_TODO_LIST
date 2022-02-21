@@ -4,17 +4,13 @@
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './App.css';
 
-function App() {  
-  let storege = localStorage.getItem('list');
-      if( storege === null ){
-          storege = [];
-      } else {
-          storege = JSON.parse(storege);
-      }
-  let [ya_list, setya_list] = useState(storege);
-  let [list_input, setlist_input] = useState('');
-  let [count, setcount] = useState(1);           
+
+function App() {   
+  let [ya_list, setya_list] = useState([]);
+  let [list_input, setlist_input] = useState('');  
+  let [count, setcount] = useState(1);       
   let mapIndex = 0;   // useState()로 변경 하면 조금 늦게 처리되어 수정 에러가 난다.
+  let ref = useRef(false);
 
   let today = new Date();
   let year = today.getFullYear(); 
@@ -27,13 +23,27 @@ function App() {
                contant : list_input,
                isON : false,
                Day : [year, month, saveDay],
-           };     
+           };
+           
+  useEffect(() => { 
+      let storege = localStorage.getItem('list');
+      if( storege === null ){
+          storege = [];
+      } else {
+          storege = JSON.parse(storege);
+      }
+      setya_list(storege);   
+      
+   }, []);        
  
-  let save = () => {  
-        let copy = [...ya_list, item_obj];   
-        localStorage.setItem('list', JSON.stringify(copy)); 
-        setya_list(copy);     
-        setlist_input('');    
+  let save = () => { 
+      let copy = [...ya_list, item_obj];   
+      if(list_input.length > 0){
+          localStorage.setItem('list', JSON.stringify(copy)); 
+          setya_list(copy);     
+          setlist_input('');    
+      } else { alert('내용을 입력해 주세요.'); }         
+       
         // setcount(() => {
         //      if(ya_list.length > 0){ return ya_list[length - 1].id + 1; }
         //      else { return count + 1; }
@@ -47,7 +57,7 @@ function App() {
       localStorage.setItem('list', JSON.stringify(copy)); 
       setya_list(copy);   //여기는 되는데 ....
    //   console.log(ya_list);   
-   }  
+   }
 
   let Nomal_Delete = () => { 
       let copy = [...ya_list];   
@@ -55,14 +65,14 @@ function App() {
       localStorage.setItem('list', JSON.stringify(copy)); 
       setya_list(copy); 
   }
-
+   
   // let selecs_Dele = () => {
 
   // }
 
   return (
     <div className="App">
-      <Nav variant="tabs" defaultActiveKey="/home">
+      {/* <Nav variant="tabs" defaultActiveKey="/home">
         <Nav.Item>
           <Nav.Link className="ya" >야 나두써!</Nav.Link>
         </Nav.Item>
@@ -72,9 +82,9 @@ function App() {
         <Nav.Item>
           <Nav.Link eventKey="link-2">대기</Nav.Link>
         </Nav.Item>        
-      </Nav> 
+      </Nav>  */}
       <div id="ya_main">
-        <h4>야 나두써  <button onClick={() => { 
+        <h4><span className='top1'>나의 할일수 <span className='top2'>{ya_list.length}</span></span> 야 나두써  <button onClick={() => { 
                 localStorage.removeItem('list'); 
                 alert('정말로 전부 삭제하시죠?'); 
                 setya_list([]);}} >전체삭제</button></h4> 
@@ -86,7 +96,7 @@ function App() {
                         <div key={i} className={`listbox listbox${item.id}`} >
                           <input type="checkbox" name="check" checked={item.isON} className='ck' 
                            value={i} onChange={() => { mapIndex = i; changeON(); }}  />
-                          <article>
+                          <article>                         
                             <p className={item.isON ? 'on' : ''}>{item.contant}</p>
                             <h6>{item.Day[0]}년 {item.Day[1]}월 {item.Day[2]}일</h6>
                           </article>

@@ -13,6 +13,7 @@
     "react-scripts": "5.0.0",
     "web-vitals": "2.1.4"
   },
+  "homepage": "https://jinhee5577.github.io/YANADO/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

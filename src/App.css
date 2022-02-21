@@ -25,8 +25,11 @@
   border-radius: 12px;
 }
 .App #ya_main {
+  padding-top: 10px;
+  box-sizing: border-box;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 14px;
+  overflow-y: scroll;
 }
 
 .App #ya_main h4 {
@@ -38,6 +41,24 @@
   font-style: italic;
   font-family: "Black Han Sans", sans-serif;
   position: relative;
+}
+#ya_main h4 .top1 {
+  width: 90px;
+  display: inline-block;
+  line-height: 35px;
+  font-size: 0.8rem;
+  font-family: "Hahmlet", serif;
+  color: white;
+  font-style: normal;
+  text-align: left;
+  border-radius: 10px;
+  position: absolute;
+  top: -7px;
+  left: 0;
+}
+#ya_main h4 .top1 .top2 {
+  color: rgb(82, 167, 82);
+  font-size: 0.99rem;
 }
 #ya_main h4 button {
   width: 60px;
@@ -57,6 +78,8 @@
 .App #ya_main #ya_list {
   width: 100%;
   margin-top: 25px;
+  height: 440px;
+  overflow-y: scroll;
 }
 .App #ya_main #ya_list .empty {
   width: 100%;
@@ -92,6 +115,16 @@
   width: 83%;
   margin-left: 5px;
 }
+/* #ya_list .listbox article input {
+  width: 96%;
+  color: rgb(78, 78, 77);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-family: "Do Hyeon", sans-serif;
+  margin: 0 !important;
+  background: none;
+  border: none;
+} */
 
 #ya_list .listbox p {
   width: 100%;
