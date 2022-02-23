@@ -1,6 +1,7 @@
  /*eslint-disable*/ 
  import React, { Component, useEffect, useState, useRef, } from 'react';
  import { Nav, Form, Button} from 'react-bootstrap';
+ import { useSelector, useDispatch } from 'react-redux';
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './App.css';
 
@@ -9,7 +10,10 @@
      let numboxRef = useRef();
      let num45 = new Array;
      let lotto6 = [];
-     let [myLottto, setmyLottto] = useState([]);
+    //  let [myLottto, setmyLottto] = useState([]);
+     let state = useSelector((store) => { return store });  
+     let dispatch = useDispatch();
+ //    console.log(state);
 
      let create = () => {         
           for(let i = 0; i < 45; i++){
@@ -23,8 +27,9 @@
           }
 
           lotto6.sort((a, b) => { return a - b; });   //낮은 숫자순
-          let state_copy = [...myLottto, lotto6];
-          setmyLottto(state_copy);
+          dispatch({ type : 'add_lotto', payload : lotto6, });
+        //   let state_copy = [...myLottto, lotto6];
+        //   setmyLottto(state_copy);
      }
 
 
@@ -32,11 +37,11 @@
          <div id="lotto">
              <h3>1등 Lotto 번호 뽑아줄게!</h3>
              <Button variant="warning" className="create" onClick={create}>뽑기</Button>
-             <Button variant="danger" className='delete' onClick={()=> {setmyLottto([]);}}>삭제</Button>
+             <Button variant="danger" className='delete' onClick={()=> { dispatch({ type : 'delete' }); }}>삭제</Button>
              <ul id="num_box" ref={numboxRef}>
                 {
-                   myLottto.length > 0
-                   ? myLottto.map((arr, i) => {
+                   state.length > 0
+                   ? state.map((arr, i) => {
                         return (
                             <li key={i}>
                                 {

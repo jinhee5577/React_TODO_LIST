@@ -4,11 +4,30 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
+
+function reducer(state = [], action){
+    if(action.type === 'add_lotto'){
+         let state_copy = [...state, action.payload];
+         return state_copy;
+    } else if(action.type === 'delete') {
+         return state = [];
+    }
+    else {
+         return state;
+    }
+}
+
+let store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename='YANADO'>
-      <App />
+      <Provider  store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

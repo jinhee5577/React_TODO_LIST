@@ -194,13 +194,14 @@ li {
 }
 #lotto {
   width: 100%;
+  padding: 0 !important;
   margin-top: 12%;
 }
 
 #lotto h3 {
   width: 100%;
   line-height: 25px;
-  font-size: 1.9rem;
+  font-size: 1.7rem;
   color: white;
   font-weight: 500;
 
@@ -240,18 +241,18 @@ li {
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 17px;
+  margin-bottom: 13px;
 }
 #lotto #num_box li .lobox {
-  width: 58px;
-  height: 58px;
-  line-height: 58px;
+  width: 47px;
+  height: 47px;
+  line-height: 47px;
   text-align: center;
   border-radius: 50%;
   background: #ff7800;
 
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: bold;
   box-shadow: 2px 3px 6px rgba(63, 62, 62, 0.4);
 }
