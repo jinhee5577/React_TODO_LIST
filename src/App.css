@@ -81,9 +81,9 @@
   height: 490px;
   overflow-y: scroll;
 }
-.App #ya_main #ya_list .empty {
+.App .empty2 {
   width: 100%;
-  line-height: 320px;
+  line-height: 200px;
   color: rgba(248, 246, 180, 0.45);
   font-size: 1.7rem;
   font-weight: 600;
@@ -184,5 +184,74 @@
   background: rgb(82, 167, 82);
   border-radius: 10px;
   border-color: rgb(114, 207, 134);
+  box-shadow: 2px 3px 6px rgba(63, 62, 62, 0.4);
+}
+
+/* 로또 창------------------------ */
+ul,
+li {
+  list-style: none;
+}
+#lotto {
+  width: 100%;
+  margin-top: 12%;
+}
+
+#lotto h3 {
+  width: 100%;
+  line-height: 25px;
+  font-size: 1.9rem;
+  color: white;
+  font-weight: 500;
+
+  font-family: "Jua", sans-serif;
+  position: relative;
+}
+
+#lotto .create {
+  margin-top: 8px;
+  width: 100px;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+#lotto .delete {
+  margin-top: 8px;
+  width: 95px;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+#lotto #num_box {
+  width: 100%;
+  /* background: coral; */
+  margin-top: 30px;
+  padding: 0;
+}
+
+#lotto #num_box li {
+  width: 100%;
+  padding: 14px 0;
+  box-sizing: border-box;
+  background: rgba(240, 240, 159, 0.55);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 17px;
+}
+#lotto #num_box li .lobox {
+  width: 58px;
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  border-radius: 50%;
+  background: #ff7800;
+
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
   box-shadow: 2px 3px 6px rgba(63, 62, 62, 0.4);
 }
